@@ -1,0 +1,29 @@
+<head><style>
+.codecontainer {
+text-align: center;
+}
+.codecontainer pre {
+display: inline-block;
+padding: 0.5em 0.5em 0.5em 0.5em;
+text-align: left;
+border-style: dotted; border-width: 1px;
+}
+h1{text-align: center;}
+</style><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lexicographicity</title></head>
+<h1>"Lexicographicity" of a string as a number</h1>
+<p>Many programming languages have builtin functions to sort arrays.</p>
+<p>It just so happens that sorting functions in languages like Python sort arrays of strings in lexicographical order. </p>
+<div class="codecontainer"><pre><code>sorted([&quot;Fine&quot;,&quot;Flop&quot;,&quot;flip&quot;,&quot;duck&quot;,&quot;****&quot;])
+= [&quot;****&quot;,&quot;Fine&quot;,&quot;Flop&quot;,&quot;duck&quot;,&quot;flip&quot;]
+</code></pre></div>
+<p>But let's say Python didn't have the ability to sort arrays of strings, and instead you had to use a <code>key</code> function, which assigns a numerical "value" to the string, and then sort the string by its "values"?</p>
+<p>I first thought that this problem would be too complicated, because smaller strings (by length) can be lexicographically "greater" than larger strings (like <code>&quot;s&quot;</code> and <code>&quot;SSSSSSSSS&quot;</code>).</p>
+<p>But then I realised it's trivial.</p>
+<div class="codecontainer"><pre><code>STRING: 'r' 'A' 'n' 'd' 'O' 'm'
+ASCII:  114  65 110 100  79 109
+KEY:  0.114 065 110 100 079 109
+    = 0.114065110100079109
+</code></pre></div>
+<p>So, listing the ascii values of the characters from left to right and concatenating them to form a decimal number does the same thing as lexicographically assigning a "value" to the string.</p>
+<p>It almost seems like fractions fell beautifully into this world, tailor-made to solve this specific problem, but as we know, they were not. Such is life.</p>
