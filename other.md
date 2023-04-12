@@ -9,6 +9,7 @@
 - [ix.io](http://ix.io)
 - bpaul's [homepage](https://bpaul.xyz/) (most charming and original personal website ever!!)
 - Daniel Cristofani's [brainfuck page](http://brainfuck.org/) and [homepage](http://www.hevanet.com/cristofd/)
+- skalpasi's [website](https://skalpasi.click) (cool guy from my college :D)
 
 ## Cool webpages
 
