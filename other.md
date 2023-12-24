@@ -15,3 +15,5 @@
 
 - [bithacks.html](http://graphics.stanford.edu/~seander/bithacks.html)
 - Minond's [brainfuck IDE](https://minond.xyz/brainfuck/)
+
+<img src="./assets/gif/blissey.gif"></img>

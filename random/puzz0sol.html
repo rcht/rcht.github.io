@@ -1,0 +1,65 @@
+<head><style>
+.codecontainer {
+text-align: center;
+}
+.codecontainer pre {
+display: inline-block;
+padding: 0.5em 0.5em 0.5em 0.5em;
+text-align: left;
+border-style: dotted; border-width: 1px;
+}
+.graphimg{
+    text-align: center;
+}
+.graphimg img{
+    width: 80%;
+}
+h1{text-align: center;}
+</style><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<h1>Solution to Morning Brew's friday puzzle (22nd September 2023)</h1>
+<p class="codecontainer">[<a href="./index.html">back</a>]</p>
+<h2>Statement</h2>
+<blockquote><p>"Arrange the numbers 1 to 15 on a line, each exactly once, such that every pair of adjacent numbers adds to a perfect square (1, 4, 9, 16...)."</p>
+</blockquote>
+<h2>Solution</h2>
+<p>First, for each number, we make a list of which numbers can be adjacent to it.</p>
+<div class="codecontainer"><pre><code>1 -&gt; 3, 8, 15
+2 -&gt; 7, 14
+3 -&gt; 1, 6, 13
+4 -&gt; 5, 12
+5 -&gt; 4, 11
+6 -&gt; 3, 10
+7 -&gt; 2, 9
+8 -&gt; 1
+9 -&gt; 7
+10 -&gt; 6, 15
+11 -&gt; 5, 14
+12 -&gt; 4, 13
+13 -&gt; 3, 12
+14 -&gt; 2, 11
+15 -&gt; 1, 10
+</code></pre></div>
+<p>Notice that 8 and 9 can only have a single number adjacent to them. Therefore, one has to be the leftmost and the other has to be the rightmost number of the arrangement, since if they're not, they must have 2 numbers adjacent to them, which they can't.</p>
+<p>Without loss of generality, let's assume we start with 9 on the left. The next number has to be 7, and the next number to 7 has to be 2 since 9 is taken, and so on, until we hit 3, where we have 2 options (1 and 6)</p>
+<div class="codecontainer"><pre><code>9 7 2 14 11 5 4 12 13 3 ?? ...
+                        (1 or 6)
+</code></pre></div>
+<p>Have we hit a dead end? Well, no! We can start constructing from the  right since we know 8 is going to be at the other end.</p>
+<div class="codecontainer"><pre><code>... 8
+... 1 8
+... 15 1 8 
+... 10 15 1 8 
+... 6 10 15 1 8
+... 3 6 10 15 1 8
+</code></pre></div>
+<p>And Voilà! We have reached 3 from both the right and left, so now we can piece together the puzzle:</p>
+<div class="codecontainer"><pre><code>9 7 2 14 11 5 4 12 13 3 ...
+                  ... 3 6 10 15 1 8
+-----------------------------------
+9 7 2 14 11 5 4 12 13 3 6 10 15 1 8
+</code></pre></div>
+<p>And there's our final answer! Pretty fun, but not the end of the story.</p>
+<h2>Graph theory!</h2>
+<p>The table we made can also be seen as an Adjacency List of an Undirected Graph with 15 nodes labeled from 1 to 15. We found a Hamiltonian Path on this graph. </p>
+<h3>Pretty visuals</h3>
+<p class="graphimg"><img src="graph.png"></img></p>

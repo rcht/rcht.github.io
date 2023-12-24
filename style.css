@@ -12,3 +12,10 @@ body {
     vertical-align: middle;
 }
 
+.codecontainer{
+    text-align: center;
+}
+
+.codecontainer pre{
+    display: inline-block;
+}
